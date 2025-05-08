@@ -11,12 +11,16 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepo usuarioRepo;
 
-    public void guardarUsuario(Usuario usuario) {
-        usuarioRepo.save(usuario);
+    public Usuario guardarUsuario(Usuario usuario) {
+        return usuarioRepo.save(usuario); // Devuelve el usuario guardado
     }
 
-    public void eliminarUsuario(int id) {
-        usuarioRepo.deleteById(id);
+    public Usuario eliminarUsuario(int id) {
+        Usuario usuario = usuarioRepo.findById(id).orElse(null);
+        if (usuario != null) {
+            usuarioRepo.deleteById(id);
+        }
+        return usuario;
     }
 
     public Usuario buscarUsuario(int id) {
