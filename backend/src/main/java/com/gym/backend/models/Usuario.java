@@ -1,4 +1,4 @@
-package com.gym.backend.entities;
+package com.gym.backend.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
