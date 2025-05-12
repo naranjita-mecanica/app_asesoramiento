@@ -19,11 +19,11 @@ public class Usuario {
     @Column(name = "nombre")
     private String nombre;
 
-    @Column(name = "apellido")
-    private String apellido;
-
     @Column(name = "edad")
     private int edad;
+
+    @Column(name = "sexo")
+    private char sexo;
 
     @Column(name = "peso")
     private double peso;
@@ -33,6 +33,9 @@ public class Usuario {
 
     @Column(name = "experiencia")
     private int experiencia;
+
+    @Column(name = "imc")
+    private double imc;
 
     public int getId() {
         return id;
@@ -49,20 +52,25 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public String getApellido()
-    {
-        return apellido;
-    }
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
     public int getEdad()
     {
         return edad;
     }
     public void setEdad(int edad) {
         this.edad = edad;
+    }
+
+    public char getSexo()
+    {
+        return sexo;
+    }
+    public void setSexo(char sexo) {
+        if (sexo == 'M' || sexo == 'F') {
+            this.sexo = sexo;
+        } else {
+            throw new IllegalArgumentException("Sexo debe ser 'M' o 'F'");
+            
+        }
     }
 
     public int getExperiencia()
@@ -79,6 +87,7 @@ public class Usuario {
     }
     public void setPeso(double peso) {
         this.peso = peso;
+        calcularImc();
     }
 
     public double getAltura()
@@ -87,13 +96,14 @@ public class Usuario {
     }
     public void setAltura(double altura) {
         this.altura = altura;
+        calcularImc();
     }
-    
-    
-    /*
-    Este seria para calcular el IMC en el futuro
-    public double setIMC(double imc, double altura, double peso) {
-        return peso / (altura * altura);
+
+    public double getIMC()
+    {
+        return imc;
     }
-    */
+    public void calcularImc() {
+        this.imc = peso / (altura * altura);
+    }
 }
