@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gym.backend.interfaces.usuario_repo;
-import com.gym.backend.models.Usuario;
+import com.gym.backend.entities.Usuario;
 
 @Service
 public class usuario_service {

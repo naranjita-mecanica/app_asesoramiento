@@ -1,7 +1,7 @@
 package com.gym.backend.routes;
 
 
-import com.gym.backend.models.Usuario;
+import com.gym.backend.entities.Usuario;
 import com.gym.backend.services.usuario_service;
 
 import jakarta.validation.Valid;
