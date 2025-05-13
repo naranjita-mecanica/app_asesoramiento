@@ -16,21 +16,31 @@ public class Usuario {
     @Column(name = "id")
     private int id;
 
+    @NotEmpty(message = "El nombre no puede estar vacío")
     @Column(name = "nombre")
     private String nombre;
 
+    @Positive(message = "La edad debe ser un número positivo")
+    @Digits(integer = 2, fraction = 0, message = "La edad debe ser un número entero")
+    @NotNull(message = "La edad no puede ser nula")
     @Column(name = "edad")
     private int edad;
 
+    @NotNull(message = "El sexo no puede ser nulo")
     @Column(name = "sexo")
     private char sexo;
 
+    @Positive(message = "El peso no puede ser negativo")
+    @NotNull(message = "El peso no puede ser nulo")
     @Column(name = "peso")
     private double peso;
 
+    @Positive(message = "La altura no puede ser negativa")
+    @NotNull(message = "La altura no puede ser nula")
     @Column(name="altura")
     private double altura;
 
+    @NotNull(message = "Debe ingresar un nivel de experiencia")
     @Column(name = "experiencia")
     private int experiencia;
 
@@ -52,6 +62,7 @@ public class Usuario {
         this.nombre = nombre;
     }
 
+    
     public int getEdad()
     {
         return edad;
@@ -60,7 +71,7 @@ public class Usuario {
         this.edad = edad;
     }
 
-    public char getSexo()
+     public char getSexo()
     {
         return sexo;
     }
@@ -87,7 +98,6 @@ public class Usuario {
     }
     public void setPeso(double peso) {
         this.peso = peso;
-        calcularImc();
     }
 
     public double getAltura()
@@ -96,10 +106,10 @@ public class Usuario {
     }
     public void setAltura(double altura) {
         this.altura = altura;
-        calcularImc();
     }
-
-    public double getIMC()
+    
+    
+     public double getIMC()
     {
         return imc;
     }
