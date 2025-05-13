@@ -1,7 +1,7 @@
 package com.gym.backend.routes;
 
 
-import com.gym.backend.models.usuario;
+import com.gym.backend.models.Usuario;
 import com.gym.backend.services.usuario_service;
 
 import jakarta.validation.Valid;
@@ -21,7 +21,7 @@ public class usuario_routes {
     private usuario_service usuariosevice;
 
     @PostMapping("/api/usuario/agrergar")
-    public usuario postUsuario(@Valid @RequestBody usuario usuario) {
+    public Usuario postUsuario(@Valid @RequestBody Usuario usuario) {
         if(usuario.getPeso() > 400.0) {
             throw new RuntimeException("Error: El peso debe ser menor a 400 kg.");
         }
@@ -33,7 +33,7 @@ public class usuario_routes {
 
     @DeleteMapping("/api/usuario/eliminar/{id}")
     public String deleteUsuario(@PathVariable("id") int id) {
-        usuario usuarioExistente = usuariosevice.buscarUsuario(id);
+        Usuario usuarioExistente = usuariosevice.buscarUsuario(id);
         if (usuarioExistente != null) {
             usuariosevice.eliminarUsuario(id);
             return "Usuario eliminado correctamente.";
@@ -43,8 +43,8 @@ public class usuario_routes {
     }
 
     @GetMapping("/api/usuario/buscar/{id}")
-    public usuario getUsuario(@PathVariable("id") int id) {
-        usuario usuarioExistente = usuariosevice.buscarUsuario(id);
+    public Usuario getUsuario(@PathVariable("id") int id) {
+        Usuario usuarioExistente = usuariosevice.buscarUsuario(id);
         if (usuarioExistente != null) {
             return usuarioExistente;
         } else {
