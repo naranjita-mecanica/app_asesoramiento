@@ -30,12 +30,12 @@
       });
       const data =  await response.json();
       if (response.ok) {
-        alert("agregado aspecto con exito");
+        alert("Usuario agregado con exito");
         location.reload();
         
       } else {
         // Mostrar mensaje de error
-        alert(data.message || "Error en el inicio de sesión");
+        alert(data.message || "Error en al agregar usuario");
       }
     } catch (error) {
       console.error("Error al realizar la solicitud:", error);
