@@ -120,6 +120,6 @@ public class Usuario {
         return imc;
     }
     public void calcularImc() {
-        this.imc = peso / (altura * altura);
+        this.imc = peso / ((altura * altura)/100);
     }
 }
