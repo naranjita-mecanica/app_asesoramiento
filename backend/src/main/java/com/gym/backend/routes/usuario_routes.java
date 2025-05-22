@@ -22,7 +22,7 @@ public class usuario_routes {
     @Autowired
     private usuario_service usuariosevice;
 
-    @PostMapping("/api/usuario/agrergar")
+    @PostMapping("/api/usuario/agregar")
     public Usuario postUsuario(@Valid @RequestBody Usuario usuario) {
         if(usuario.getPeso() > 400.0) {
             throw new RuntimeException("Error: El peso debe ser menor a 400 kg.");
