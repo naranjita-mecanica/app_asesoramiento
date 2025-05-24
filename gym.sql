@@ -27,14 +27,14 @@ CREATE TABLE `usuario` (
   `nombre` varchar(45) DEFAULT NULL,
   `edad` int unsigned DEFAULT NULL,
   `sexo` char(1) DEFAULT NULL,
-  `peso` decimal(10,0) unsigned DEFAULT NULL,
-  `altura` decimal(10,0) DEFAULT NULL,
+  `peso` double unsigned DEFAULT NULL,
+  `altura` double DEFAULT NULL,
   `experiencia` int DEFAULT NULL,
-  `IMC` decimal(10,0) NOT NULL,
+  `IMC` double NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   CONSTRAINT `usuario_chk_1` CHECK ((`sexo` in (_utf8mb4'M',_utf8mb4'F')))
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,6 +43,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (8,'David Bermudez',35,'M',90,2,10,27),(9,'Daniel Hernández',20,'M',56,173,2,0),(10,'David Jimenez',35,'M',90,2,10,27),(11,'Daniel',20,'M',55,173,2,0),(12,'Daniel',19,'M',55,2,3,1838),(13,'mmm',20,'M',55,173,2,0.18376825152861773),(14,'aaaaa',19,'M',55,173,3,0.18376825152861773);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-05-12 15:27:56
+-- Dump completed on 2025-05-14  8:16:51
