@@ -1,0 +1,25 @@
+spring:
+  application : 
+    name : backend
+
+  datasource:
+    url : jdbc:mysql://localhost:3306/gym
+    username : root
+    password : 1234
+
+  
+  jpa:
+    hibernate: 
+      ddl: 
+        auto : update
+
+  ai:
+    openai:
+      base-url: https://openrouter.ai/api/
+      api-key : API
+      chat:
+        options:
+          model: meta-llama/llama-3.3-70b-instruct:free
+
+server:
+  port : 8081
